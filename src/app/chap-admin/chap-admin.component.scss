@@ -1,0 +1,21 @@
+
+.grid-container {
+  margin-left: 200px;
+}
+
+.toolbar-icon {
+  padding: 0 28px;
+}
+
+.add-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-container  > *{
+  width: 100%;
+}
+
+.person-card-content {
+  text-align: center;
+}

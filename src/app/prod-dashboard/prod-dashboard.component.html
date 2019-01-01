@@ -1,0 +1,35 @@
+
+<mat-grid-list cols="3" rowHeight="180px">
+  <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+    <mat-card class="dashboard-card">
+      <mat-card-content class="dashboard-card-content">
+        
+
+          <mat-icon color="warn" class="md-48 mr-4" > {{ card.card_icon }} </mat-icon>
+
+          <span class="display-5 font-weight-bold chap-red pt-2">
+            {{ card.cvalue }}
+          </span>
+          <br>
+          <small class="text-muted font-weight-bold"> {{ card.title }} </small>
+        
+
+        <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+          <span class="font-weight-normal">
+            <mat-icon>more_horiz</mat-icon>
+          </span>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+          <button mat-menu-item>
+            <mat-icon>launch</mat-icon> Expand
+          </button>
+          <button mat-menu-item>
+            <mat-icon>delete_outline</mat-icon> Remove
+          </button>
+        </mat-menu>
+
+      </mat-card-content>
+      
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

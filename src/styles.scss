@@ -1,0 +1,87 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css" ;
+// @import "~@angular/material/prebuilt-themes/deeppurple-amber.css"
+// @import "~@angular/material/prebuilt-themes/pink-bluegrey.css"  
+// @import "~@angular/material/prebuilt-themes/purple-green.css" 
+
+@import "./assets/scss/spinner";
+
+@import '~@angular/material/theming';
+
+
+@include mat-core();
+
+// primary  accent then warn
+$chapchap-app-primary: mat-palette($mat-red);
+$chapchap-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$chapchap-app-warn:    mat-palette($mat-amber);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$chapchap-app-theme: mat-light-theme($chapchap-app-primary, $chapchap-app-accent, $chapchap-app-warn);
+
+.chapchap-light-theme {
+  @include angular-material-theme($chapchap-app-theme);
+}
+
+@include angular-material-theme($chapchap-app-theme);
+// Define an alternate dark theme.
+$chapchap-dark-primary: mat-palette($mat-blue-grey);
+$chapchap-dark-accent:  mat-palette($mat-amber, A200, A100, A400);
+$chapchap-dark-warn:    mat-palette($mat-deep-orange);
+$chapchap-dark-theme:   mat-dark-theme($chapchap-dark-primary, $chapchap-dark-accent, $chapchap-dark-warn);
+
+// Included the alternative theme styles inside of a block with a CSS class.
+// To be affected by this alternate dark theme instead of the default theme.
+.chapchap-dark-theme {
+  @include angular-material-theme($chapchap-dark-theme);
+}
+
+/* Other elements */
+
+.chap-red {
+    color: #F73233;
+}
+
+.back-red {
+    background-color: #F73233;
+}
+
+.color-green {
+    color:#21CE99;
+}
+
+.display-5 {
+    font-size: 2.5rem;
+}
+
+.material-icons.md-14 {
+    font-size: 14px;
+}
+
+.material-icons.md-18 {
+    font-size: 18px;
+}
+
+.material-icons.md-24 {
+    font-size: 24px;
+
+}
+.material-icons.md-36 {
+    font-size: 36px;
+}
+
+.material-icons.md-48 {
+    font-size: 48px;
+}
+
+.material-icons{
+    vertical-align: middle;
+}
+
+.img-round {
+    border-radius: 75px;
+}

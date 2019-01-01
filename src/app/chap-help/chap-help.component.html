@@ -1,0 +1,26 @@
+
+  <app-chap-nav> </app-chap-nav>
+
+  <mat-card class="grid-container">
+    <nav aria-label="breadcrumb" class="mt-2 mr-2">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active mat-h1" aria-current="page"> Help </li>
+      </ol>
+    </nav>
+    <mat-tab-group mat-stretch-tabs="always">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="mr-2">help_outline</mat-icon>  <span class="toolbar-icon" color="primary"> HELP </span>
+        </ng-template>
+        <h1>Customer care Chat content goes here</h1>
+        <p>...</p>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="toolbar-icon">chat_bubble_outline</mat-icon> <span class="toolbar-icon" color="primary">  CONTACT US </span>
+        </ng-template>
+        <app-chap-contact></app-chap-contact>
+
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>

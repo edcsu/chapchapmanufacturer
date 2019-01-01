@@ -1,0 +1,11 @@
+
+<mat-card class=" my-2 mx-2 py-4 px-4" *ngFor="let item of ChapAddress" style="width: 36rem;">
+  <div class="row card-body">
+    <div class="col-md-2 text-center pl-4 pt-2">
+      <mat-icon mat-list-icon> {{ item.icon }} </mat-icon>
+    </div>
+    <div class="col-md-8">
+      <h5 class="mt-0 chap-red font-weight-bold card-title"> {{ item.title }} </h5>
+    </div>
+  </div>
+</mat-card>

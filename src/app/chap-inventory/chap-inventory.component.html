@@ -1,0 +1,55 @@
+
+    <app-chap-nav> </app-chap-nav>
+
+    <mat-card class="grid-container">
+      <nav aria-label="breadcrumb" class="mt-2 mr-2">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active mat-h1" aria-current="page"> Inventory </li>
+        </ol>
+      </nav>
+      <div class="container">
+        <div class="row">
+          <div class="col bg-dark text-white">
+            <a class="navbar-brand">YOUR STORE</a>
+          </div>
+        </div>
+        <div class="row ">
+          <div class="col-3 p-2 ">
+             Total: {{categories.length}} Categories
+
+            <button class="btn btn-block btn-outline-danger" (click)="changeCategory()">
+              All
+            </button>
+            <button *ngFor="let cat of categories" class="btn btn-outline-danger btn-block" [class.active]="cat == selectedCategory"
+              (click)="changeCategory(cat)">
+              {{cat}}
+            </button>
+
+          </div>
+          <div class="col-9 p-2">
+            Total: {{products.length}} Products
+            <mat-card *ngFor="let product of products" class=" m-1 p-1 ">
+              <h4>
+                {{product.name}}
+                <span class="badge badge-pill badge-danger float-right">
+                  {{ product.price | currency:"UGX":"symbol":"2.2-2" }}
+                </span>
+              </h4>
+              <div class="card-text  p-1">
+                <div class="row">
+                  <div class="col-4">
+                    {{product.description}}
+                  </div>
+                  <div class="col-3 ">
+                    Stock :
+                    <span class="badge badge-pill badge-info">
+                      {{product.units}} Units
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </mat-card>

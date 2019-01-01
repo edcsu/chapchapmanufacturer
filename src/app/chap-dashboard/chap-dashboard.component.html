@@ -1,0 +1,57 @@
+
+
+<app-chap-nav> </app-chap-nav>
+
+
+<mat-card class="grid-container">
+  <nav aria-label="breadcrumb" class="mt-2 mr-2">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active mat-h1" aria-current="page">Dashboard</li>
+    </ol>
+  </nav>
+  <mat-grid-list cols="2" rowHeight="240px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon> {{ card.card_icon }} </mat-icon>
+            <span class="font-weight-bold pt-1"> {{card.title}} </span>
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <span class="font-weight-normal">
+                <mat-icon>more_vert</mat-icon>
+              </span>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>
+                <mat-icon>launch</mat-icon> Expand
+              </button>
+              <button mat-menu-item>
+                <mat-icon>delete_outline</mat-icon> Remove
+              </button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <p>
+            <span class="display-4 font-weight-bold chap-red">
+              {{ card.cvalue }}
+            </span>
+            <br>
+            <small class="text-muted"> {{ card.cunit }} </small>
+          </p>
+        </mat-card-content>
+        <mat-card-footer class="text-center">
+          <mat-icon color="{{ card.trend_color }}"> {{card.trend_icon }} </mat-icon> {{card.trend}}
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <mat-card>
+    <app-chap-productsales></app-chap-productsales>
+  </mat-card>
+  <br>
+  <mat-card>
+    <app-chap-salesgrowth></app-chap-salesgrowth>
+  </mat-card>
+</mat-card>

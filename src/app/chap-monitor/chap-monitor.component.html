@@ -1,0 +1,57 @@
+
+<mat-card class="monitor-panel my-2 mx-2">
+  <div class="row">
+    <div class="col-md-2">
+      <button [routerLink]="['/dashboard']" mat-raised-button> <span class="chap-red"> Dashboard </span> </button>
+    </div>
+      <div class="col-md-9">
+        <div class="media">
+          <img class="align-self-center mr-3" src="../../assets/img/chapchaplogo.png" alt="chapchap logo" width="120" height="120">
+          <div class="media-body">
+            <h4 class="mt-0 chap-red display-4 font-weight-bold"> ChapChap Monitoring Panel </h4>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <mat-card class="dashboard-card">
+          <mat-card-title class="text-center">
+            <mat-icon color="warn"> zoom_out_map </mat-icon>
+            <span class="font-weight-bold pt-1 h1"> Number of Transactions </span>
+          </mat-card-title>
+        <mat-card-content class="text-center">
+        <!-- Datepicker to show history of transactions -->
+          <mat-form-field>
+            <mat-label> From: </mat-label>
+            <input matInput [matDatepicker]="transDatepicker">
+            <mat-datepicker-toggle matSuffix [for]="transDatepicker"></mat-datepicker-toggle>
+            <mat-datepicker #transDatepicker></mat-datepicker>
+          </mat-form-field>
+
+          <br>
+              <div >
+              <!-- Display of transactions -->                
+                <button type="button" *ngFor="let item of ChapTrans" class="btn back-red btn-lg mr-1 mb-1 text-white"> <span class="display-1"> {{ item }} </span> </button>
+
+              </div>
+        
+        </mat-card-content>
+        <mat-card-footer class="text-center mb-2">
+            <!-- Online distributors -->
+            <mat-icon color="warn"> wifi_tethering </mat-icon>
+            <span> Online Distributors </span>
+            <br>
+          <button type="button" class="btn btn-primary btn-lg my-1 text-white"> <span class="display-4"> {{ ChapOnline }} </span> </button>
+        </mat-card-footer>
+      </mat-card>
+
+    </div>
+    <div class="col-md-4">
+        <!-- Map showing realtime stock of distributors -->
+      <mat-card>
+        <app-chapug-map></app-chapug-map>
+      </mat-card>
+    </div>
+    </div>
+</mat-card>

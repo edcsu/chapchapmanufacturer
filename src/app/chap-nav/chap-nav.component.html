@@ -1,0 +1,182 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list >
+      <a [routerLink]="['/dashboard']" routerLinkActive="active" mat-list-item>
+        <span class="chap-red">
+         <mat-icon>home</mat-icon>
+          Dashboard
+        </span>
+      </a>
+      
+      <a [routerLink]="['/stats']" routerLinkActive="active" mat-list-item>
+        <span class="chap-red">
+          <mat-icon>insert_chart_outlined</mat-icon>
+          Statistics
+        </span>
+      </a>
+      
+      <a [routerLink]="['/products']" routerLinkActive="active" mat-list-item>
+        <span class="chap-red">
+          <mat-icon>add_shopping_cart</mat-icon>
+          Products
+        </span>
+      </a>
+      
+      <a [routerLink]="['/inventory']" routerLinkActive="active" mat-list-item>
+        <span class="chap-red">
+          <mat-icon>shopping_basket</mat-icon>
+           Inventory
+        </span>
+      </a>
+
+      <a [routerLink]="['/order']" routerLinkActive="active" mat-list-item>
+        <span class="chap-red">
+          <mat-icon>description</mat-icon>
+          Order
+        </span>
+      </a>
+      
+      <a [routerLink]="['/admin']" routerLinkActive="active" mat-list-item>
+        <span class="chap-red">
+          <mat-icon>account_circle</mat-icon>
+          Admin
+        </span>
+      </a>
+      
+      <a [routerLink]="['/settings']" routerLinkActive="active" mat-list-item>
+        <span class="chap-red">
+          <mat-icon>settings</mat-icon>
+          Settings
+        </span>
+      </a>
+      
+      <a [routerLink]="['/help']" routerLinkActive="active" mat-list-item>
+        <span class="chap-red">
+          <mat-icon>help_outline</mat-icon>
+          Help
+        </span>
+      </a>
+      
+      <a [routerLink]="['/monitor']" routerLinkActive="active" mat-list-item>
+        <span class="chap-red">
+          <mat-icon>visibility</mat-icon>
+          Monitoring Panel
+        </span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <img matListAvatar src="../../assets/img/uniliver_logo.png" height="50px" width="50px" alt="logo" >
+      <span class="toolbar-icon"> Uniliver </span>
+      <span class="toolbar-spacer"></span>
+      <button type="button" mat-icon-button class="toolbar-icon" [matMenuTriggerFor]="ordermenu">      
+        <mat-icon matBadge="15" matBadgeColor="warn" >account_balance_wallet</mat-icon>
+      </button>
+      <button type="button" mat-icon-button class="toolbar-icon" [matMenuTriggerFor]="msgmenu">      
+        <mat-icon matBadge="25" matBadgeColor="warn" >mail_outline</mat-icon>
+      </button>
+      <button type="button" mat-icon-button class="toolbar-icon" [matMenuTriggerFor]="chatsmenu">      
+        <mat-icon matBadge="43" matBadgeColor="warn" >chat_bubble_outline</mat-icon>
+      </button>
+      <button type="button" mat-icon-button class="toolbar-icon" [matMenuTriggerFor]="alertsmenu">      
+        <mat-icon matBadge="65" matBadgeColor="warn" >notifications_none</mat-icon>
+      </button>
+      <button type="button" mat-icon-button class="toolbar-icon" [matMenuTriggerFor]="accountmenu">
+        <img class="img-circle" src="../../assets/img/team1.jpg" class="img-round" height="40px" width="40px" alt="logo" >
+      </button>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+
+<mat-menu #ordermenu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>dialpad</mat-icon>
+    <span>Redial</span>
+  </button>
+  <button mat-menu-item disabled>
+    <mat-icon>voicemail</mat-icon>
+    <span>Check voicemail</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>notifications_off</mat-icon>
+    <span>Disable alerts</span>
+  </button>
+</mat-menu>
+
+<mat-menu #msgmenu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>sync</mat-icon>
+    <span>Recent</span>
+  </button>
+  <button mat-menu-item >
+    <mat-icon>fiber_new</mat-icon>
+    <span>New messages</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>group_add</mat-icon>
+    <span>New group</span>
+  </button>
+</mat-menu>
+
+<mat-menu #chatsmenu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>sync</mat-icon>
+    <span>Recent</span>
+  </button>
+  <button mat-menu-item >
+    <mat-icon>fiber_new</mat-icon>
+    <span>New messages</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>person_add</mat-icon>
+    <span>New chat</span>
+  </button>
+</mat-menu>
+
+<mat-menu #alertsmenu="matMenu">
+  <mat-list>
+    <h3 mat-subheader>Notifications</h3>
+    <mat-list-item *ngFor="let folder of folders">
+      <button mat-menu-item>
+        <mat-icon mat-list-icon>person</mat-icon>
+        <h4 mat-line>{{folder.name}}</h4>
+        <p mat-line> {{folder.updated | date}} </p>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</mat-menu>
+
+<mat-menu #accountmenu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>radio_button_checked</mat-icon>
+    <span>Status: Online</span>
+  </button>
+  <button mat-menu-item >
+    <mat-icon>settings</mat-icon>
+    <span> Account setting </span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>feedback</mat-icon>
+    <span> Feedback </span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>power_settings_new</mat-icon>
+    <span> Logout </span>
+  </button>
+</mat-menu>

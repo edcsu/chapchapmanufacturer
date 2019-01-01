@@ -1,0 +1,66 @@
+
+  <app-chap-nav> </app-chap-nav>
+  
+  <mat-card>
+    <mat-card class="grid-container">
+      <nav aria-label="breadcrumb" class="mt-2 mr-2">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active mat-h1" aria-current="page"> Settings </li>
+        </ol>
+      </nav>
+
+      <mat-card class="card ml-4 mb-2" style="width: 60rem;">
+          <!-- ChapChap header -->
+        <div class="media card-body">
+          <img class="align-self-center mr-3" src="../../assets/img/chapchaplogo.png" alt="chapchap logo" width="120" height="120">
+          <div class="media-body">
+            <h4 class="mt-0 chap-red display-4 font-weight-bold"> ChapChap Manufacturer </h4>
+            <p class="card-text">
+              Enhance Your Business
+            </p>
+          </div>
+        </div>
+
+            <button mat-raised-button (click)="changeTheme()"> <span class="chap-red "> Change theme </span> </button>
+
+        <div class="row card-body">
+
+          <!-- Various settings of the app -->
+          <div class="col-md-6">
+
+            <mat-card class=" card my-2 mx-5 py-4 px-4" *ngFor="let item of first">
+              <div class="row">
+                <div class="col-md-2 text-center pl-4 pt-2">
+                  <mat-icon mat-list-icon> {{ item.icon }} </mat-icon>
+                </div>
+                <div class="col-md-9">
+                    <h5 class="mt-0 chap-red font-weight-bold"> {{ item.title }} </h5>
+                    <p class="card-text">
+                      {{ item.sub }}
+                    </p> 
+                  
+              </div>
+            </div>
+          </mat-card>
+          </div>
+          <div class="col-md-6">
+            <mat-card class=" card my-2 mx-2 py-4 px-4" *ngFor="let item of second">
+              <div class="row">
+                <div class="col-md-2 text-center pl-4 pt-2">
+                  <mat-icon mat-list-icon> {{ item.icon }} </mat-icon>
+                </div>
+                <div class="col-md-6 ">
+                  
+                    <h5 class="mt-0 chap-red font-weight-bold"> {{ item.title }} </h5>
+                    <p class="card-text color-green">
+                      {{ item.sub }}
+                    </p>
+                  
+                </div>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+      </mat-card>
+    </mat-card>
+  </mat-card>
