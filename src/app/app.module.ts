@@ -6,6 +6,10 @@ import { MaterialModule } from './material';
 import { LayoutModule } from '@angular/cdk/layout';
 import {OverlayContainer} from '@angular/cdk/overlay';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faFacebook, faTwitter, faWhatsapp, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { ModelModule } from './model/model.module';
 
 
@@ -34,6 +38,9 @@ import { ChapDistroComponent } from './chap-distro/chap-distro.component';
 import { ChapPieComponent } from './chap-pie/chap-pie.component';
 import { ChapAddMemberComponent } from './chap-add-member/chap-add-member.component';
 
+// added icons to library for all access in all components
+library.add(faFacebook, faTwitter, faWhatsapp, faLinkedin, faEnvelope);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +65,7 @@ import { ChapAddMemberComponent } from './chap-add-member/chap-add-member.compon
     ChapContactComponent,
     ChapDistroComponent,
     ChapPieComponent,
-    ChapAddMemberComponent
+    ChapAddMemberComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +75,8 @@ import { ChapAddMemberComponent } from './chap-add-member/chap-add-member.compon
     MaterialModule,
     HighchartsChartModule,
     AppRoutingModule,
-    ModelModule
+    ModelModule,
+    FontAwesomeModule
   ],
   bootstrap: [AppComponent]
 })

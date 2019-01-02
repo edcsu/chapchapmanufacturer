@@ -1,13 +1,11 @@
 
 import { Component, OnInit } from '@angular/core';
-
 export interface Section {
   card_img: string;
   card_name: string;
   card_location: string;
   card_phone: string;
 }
-
 @Component({
   selector: 'app-chap-admin',
   templateUrl: './chap-admin.component.html',
