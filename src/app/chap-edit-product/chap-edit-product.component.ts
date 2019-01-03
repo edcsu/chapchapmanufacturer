@@ -11,6 +11,7 @@ import { ProductRepository } from '../model/product.repository';
 })
 export class ChapEditProductComponent implements OnInit {
 
+  // tslint:disable-next-line:no-inferrable-types
   editing: boolean = false;
   product: Product = new Product();
 

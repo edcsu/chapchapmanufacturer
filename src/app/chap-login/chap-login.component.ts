@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-chap-login',
@@ -10,9 +9,10 @@ export class ChapLoginComponent implements OnInit {
 
   hide = true;
 
-  constructor() { }
-
   ngOnInit() {
   }
 
+  constructor( ) { }
+
 }
+

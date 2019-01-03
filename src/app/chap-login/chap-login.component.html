@@ -1,4 +1,4 @@
-  
+
   
     <div class="login-box text-center">
       <form class="form-signin pt-4">
@@ -11,7 +11,7 @@
         </mat-form-field>
         
         <mat-form-field>
-          <input matInput placeholder="Enter password" [type]="hide ? 'password' : 'text'">
+          <input matInput placeholder="Enter password" [type]="hide ? 'password' : 'text'" required>
           <mat-icon matSuffix (click)="hide = !hide"> {{ hide ? 'visibility' : 'visibility_off' }} </mat-icon>
         </mat-form-field>
 
