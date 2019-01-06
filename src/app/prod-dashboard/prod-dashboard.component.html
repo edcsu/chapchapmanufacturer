@@ -1,18 +1,15 @@
 
-<mat-grid-list cols="3" rowHeight="180px">
+<mat-grid-list cols="{{(isHandset$ | async) ? 1 : 3}}" rowHeight="180px">
   <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
     <mat-card class="dashboard-card">
-      <mat-card-content class="dashboard-card-content">
+      <mat-card-content class="{{(isHandset$ | async) ? 'dashboard-card-content' : ''}}" >
         
 
-          <mat-icon color="warn" class="md-48 mr-4" > {{ card.card_icon }} </mat-icon>
+          <mat-icon color="warn" class="md-48 ml-1" > {{ card.card_icon }} </mat-icon>
 
-          <span class="display-5 font-weight-bold chap-red pt-2">
+          <span class="display-5 font-weight-bold chap-red pt-2 dashboard-card-content ml-4">
             {{ card.cvalue }}
           </span>
-          <br>
-          <small class="text-muted font-weight-bold"> {{ card.title }} </small>
-        
 
         <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
           <span class="font-weight-normal">
@@ -30,6 +27,12 @@
 
       </mat-card-content>
       
+      <mat-card-footer class="dashboard-card-content">
+
+          <small class="text-muted font-weight-bold"> {{ card.title }} </small>
+
+      </mat-card-footer>
+
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>

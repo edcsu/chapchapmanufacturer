@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointState, BreakpointObserver } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-prod-dashboard',
@@ -9,6 +10,13 @@ import { Breakpoints, BreakpointState, BreakpointObserver } from '@angular/cdk/l
 })
 export class ProdDashboardComponent {
   /** Based on the screen size, switch from standard to one column per row */
+
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches)
+    );
+
+
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {

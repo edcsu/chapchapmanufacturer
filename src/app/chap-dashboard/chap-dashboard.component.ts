@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Breakpoints, BreakpointState, BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
@@ -9,6 +10,12 @@ import { Breakpoints, BreakpointState, BreakpointObserver } from '@angular/cdk/l
 })
 export class ChapDashboardComponent {
   /** Based on the screen size, switch from standard to one column per row */
+
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches)
+    );
+
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {

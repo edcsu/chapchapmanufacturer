@@ -26,7 +26,7 @@ const routes: Routes = [
     {
         path: 'login',
         component: ChapLoginComponent
-     },
+    },
     {
         path: 'nav',
         component: ChapNavComponent
@@ -77,7 +77,7 @@ const routes: Routes = [
         component: ChapCheckoutComponent
     },
     {
-        path: 'editproduct',
+        path: 'editproduct/:id',
         component: ChapEditProductComponent
     }
 ];

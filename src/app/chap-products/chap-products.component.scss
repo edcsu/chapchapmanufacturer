@@ -1,6 +1,6 @@
 
 .grid-container {
-  margin-left: 200px;
+  margin-left: 0px;
 }
 
 .quick-details {
@@ -9,4 +9,8 @@
 
 .details-spacer {
   flex: 1 1 auto;
+}
+
+.hidden {
+  display: none;
 }

@@ -28,7 +28,7 @@ export class ChapSettingsComponent implements OnInit {
     },
     {
       title: 'Phone Number',
-      sub: '256752000000',
+      sub: '+256752000000',
       icon: 'call'
     },
     {

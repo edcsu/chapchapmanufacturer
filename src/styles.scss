@@ -6,8 +6,6 @@
 // @import "~@angular/material/prebuilt-themes/pink-bluegrey.css"  
 // @import "~@angular/material/prebuilt-themes/purple-green.css" 
 
-@import "./assets/scss/spinner";
-
 @import '~@angular/material/theming';
 
 
@@ -29,7 +27,7 @@ $chapchap-app-theme: mat-light-theme($chapchap-app-primary, $chapchap-app-accent
 
 @include angular-material-theme($chapchap-app-theme);
 // Define an alternate dark theme.
-$chapchap-dark-primary: mat-palette($mat-blue-grey);
+$chapchap-dark-primary: mat-palette($mat-blue-grey );
 $chapchap-dark-accent:  mat-palette($mat-amber, A200, A100, A400);
 $chapchap-dark-warn:    mat-palette($mat-deep-orange);
 $chapchap-dark-theme:   mat-dark-theme($chapchap-dark-primary, $chapchap-dark-accent, $chapchap-dark-warn);

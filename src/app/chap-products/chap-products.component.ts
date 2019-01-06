@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../model/product.model';
 import { ProductRepository } from '../model/product.repository';
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 export interface Section {
   name: string;
@@ -49,7 +52,15 @@ export class ChapProductsComponent implements OnInit {
     }
   ];
 
-  constructor(private repository: ProductRepository) { }
+  constructor(
+                private repository: ProductRepository,
+                private breakpointObserver: BreakpointObserver
+              ) { }
+
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches)
+    );
 
   getProducts(): Product[] {
     return this.repository.getProducts();

@@ -83,7 +83,7 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <img matListAvatar src="../../assets/img/uniliver_logo.png" height="50px" width="50px" alt="logo" >
-      <span class="toolbar-icon"> Uniliver </span>
+      <span class="toolbar-icon {{(isHandset$ | async) ? 'hidden' : ''}}" > Uniliver </span>
       <span class="toolbar-spacer"></span>
       <button type="button" mat-icon-button class="toolbar-icon" [matMenuTriggerFor]="ordermenu">      
         <mat-icon matBadge="15" matBadgeColor="warn" >account_balance_wallet</mat-icon>
@@ -102,81 +102,83 @@
       </button>
     </mat-toolbar>
     <!-- Add Content Here -->
+    <ng-content></ng-content>
   </mat-sidenav-content>
 
-<mat-menu #ordermenu="matMenu">
-  <button mat-menu-item>
-    <mat-icon>dialpad</mat-icon>
-    <span>Redial</span>
-  </button>
-  <button mat-menu-item disabled>
-    <mat-icon>voicemail</mat-icon>
-    <span>Check voicemail</span>
-  </button>
-  <button mat-menu-item>
-    <mat-icon>notifications_off</mat-icon>
-    <span>Disable alerts</span>
-  </button>
-</mat-menu>
+  <mat-menu #ordermenu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>dialpad</mat-icon>
+      <span>Redial</span>
+    </button>
+    <button mat-menu-item disabled>
+      <mat-icon>voicemail</mat-icon>
+      <span>Check voicemail</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>notifications_off</mat-icon>
+      <span>Disable alerts</span>
+    </button>
+  </mat-menu>
 
-<mat-menu #msgmenu="matMenu">
-  <button mat-menu-item>
-    <mat-icon>sync</mat-icon>
-    <span>Recent</span>
-  </button>
-  <button mat-menu-item >
-    <mat-icon>fiber_new</mat-icon>
-    <span>New messages</span>
-  </button>
-  <button mat-menu-item>
-    <mat-icon>group_add</mat-icon>
-    <span>New group</span>
-  </button>
-</mat-menu>
+  <mat-menu #msgmenu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>sync</mat-icon>
+      <span>Recent</span>
+    </button>
+    <button mat-menu-item >
+      <mat-icon>fiber_new</mat-icon>
+      <span>New messages</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>group_add</mat-icon>
+      <span>New group</span>
+    </button>
+  </mat-menu>
 
-<mat-menu #chatsmenu="matMenu">
-  <button mat-menu-item>
-    <mat-icon>sync</mat-icon>
-    <span>Recent</span>
-  </button>
-  <button mat-menu-item >
-    <mat-icon>fiber_new</mat-icon>
-    <span>New messages</span>
-  </button>
-  <button mat-menu-item>
-    <mat-icon>person_add</mat-icon>
-    <span>New chat</span>
-  </button>
-</mat-menu>
+  <mat-menu #chatsmenu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>sync</mat-icon>
+      <span>Recent</span>
+    </button>
+    <button mat-menu-item >
+      <mat-icon>fiber_new</mat-icon>
+      <span>New messages</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>person_add</mat-icon>
+      <span>New chat</span>
+    </button>
+  </mat-menu>
 
-<mat-menu #alertsmenu="matMenu">
-  <mat-list>
-    <h3 mat-subheader>Notifications</h3>
-    <mat-list-item *ngFor="let folder of folders">
-      <button mat-menu-item>
-        <mat-icon mat-list-icon>person</mat-icon>
-        <h4 mat-line>{{folder.name}}</h4>
-        <p mat-line> {{folder.updated | date}} </p>
-      </button>
-    </mat-list-item>
-  </mat-list>
-</mat-menu>
+  <mat-menu #alertsmenu="matMenu">
+    <mat-list>
+      <h3 mat-subheader>Notifications</h3>
+      <mat-list-item *ngFor="let folder of folders">
+        <button mat-menu-item>
+          <mat-icon mat-list-icon>person</mat-icon>
+          <h4 mat-line>{{folder.name}}</h4>
+          <p mat-line> {{folder.updated | date}} </p>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-menu>
 
-<mat-menu #accountmenu="matMenu">
-  <button mat-menu-item>
-    <mat-icon>radio_button_checked</mat-icon>
-    <span>Status: Online</span>
-  </button>
-  <button mat-menu-item >
-    <mat-icon>settings</mat-icon>
-    <span> Account setting </span>
-  </button>
-  <button mat-menu-item>
-    <mat-icon>feedback</mat-icon>
-    <span> Feedback </span>
-  </button>
-  <button mat-menu-item>
-    <mat-icon>power_settings_new</mat-icon>
-    <span> Logout </span>
-  </button>
-</mat-menu>
+  <mat-menu #accountmenu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>radio_button_checked</mat-icon>
+      <span>Status: Online</span>
+    </button>
+    <button mat-menu-item >
+      <mat-icon>settings</mat-icon>
+      <span> Account setting </span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>feedback</mat-icon>
+      <span> Feedback </span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>power_settings_new</mat-icon>
+      <span> Logout </span>
+    </button>
+  </mat-menu>
+</mat-sidenav-container>

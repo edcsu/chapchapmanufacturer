@@ -9,10 +9,9 @@ export class ChapLoginComponent implements OnInit {
 
   hide = true;
 
+  constructor() { }
+
   ngOnInit() {
   }
 
-  constructor( ) { }
-
 }
-
